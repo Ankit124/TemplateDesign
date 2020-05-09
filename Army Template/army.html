@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Army Design Template</title>
+
+    <style>
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+
+.form-popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+  background-color: white;
+}
+
+/* Full-width input fields */
+.form-container input[type=text], .form-container input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+/* When the inputs get focus, do something */
+.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+     @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700");
+* {
+  font-family: 'Open Sans', sans-serif;
+  box-sizing: border-box;
+  color: #333;
+  font-size: 100%;
+  line-height: 1.5;
+}
+body {
+  background-image: url(Army.jpg);
+  margin: 0;
+    background-size: cover;
+}
+nav {
+  --duration: .5s;
+  --easing: ease-in-out;
+  position: relative;
+  width: 220px;
+  margin: 20px;
+}
+nav ol {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+nav li {
+  margin: -4px 0 0 0;
+}
+nav a {
+  display: block;
+  text-decoration: none;
+  background: #fff;
+  transform-origin: 0 0;
+  transition: transform var(--duration) var(--easing), color var(--duration) var(--easing);
+  transition-delay: var(--delay-out);
+  border-radius: 4px;
+  padding: 1em 1.52em;
+}
+nav a:hover {
+  background: #efefef;
+}
+nav .sub-menu a {
+  font-size: .9em;
+  color: #666666;
+  border-left: 2em solid white;
+  padding: .75em;
+  background: linear-gradient(to right, #dddddd 2px, #ffffff 2px);
+}
+nav .sub-menu a:hover {
+  background: linear-gradient(to right, #dddddd 2px, #efefef 2px);
+}
+nav header {
+  font-weight: 600;
+  display: block;
+  background: rgba(255, 255, 255, 0.5);
+  transform-origin: 0 0;
+  transition: transform var(--duration) var(--easing), color var(--duration) var(--easing);
+  transition-delay: var(--delay-out);
+  border-radius: 4px;
+  padding: 1em 1.52em;
+}
+nav header span {
+  border: none;
+  background: transparent;
+  font-size: 1.5em;
+  padding: 0;
+  cursor: pointer;
+  line-height: 1;
+  float: right;
+}
+nav footer button {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: none;
+  padding: calc(1em - 2px);
+  width: 100%;
+  transform-origin: 0 0;
+  transition: transform var(--duration) var(--easing);
+  transition-delay: calc(var(--duration) + (.1s * (var(--count) / 2)));
+  cursor: pointer;
+  outline: none;
+  background: #cdcdcd;
+  opacity: 0;
+}
+nav.closed a,
+nav.closed header {
+  transform: translateY(calc(var(--top) * -1)) scaleY(0.1) scaleX(0.2);
+  transition-delay: var(--delay-in);
+  color: transparent;
+}
+nav.closed footer button {
+  transition-delay: 0s;
+  transform: scaleY(0.7) scaleX(0.2);
+}
+
+    
+    </style>
+</head>
+<body>
+   
+    <nav class="menu">
+    <header>Menu <span>×</span></header>
+    <ol>
+        <li class="menu-item"><a href="army.html">Home</a></li>
+        <li class="menu-item"><a href="https://indianairforce.nic.in/content/history-iaf-0">About</a></li>
+        <li class="menu-item">
+            <a href="#0">Career</a>
+            <ol class="sub-menu">
+                <li class="menu-item"><a href="#0">Officers</a></li>
+                <li class="menu-item"><a href="#0">Medical Officers</a></li>
+                <li class="menu-item"><a href="#0">Airmen</a></li>
+            </ol>
+        </li>
+        <li class="menu-item">
+            <a href="#0">Defence Forces</a>
+            <ol class="sub-menu">
+                <li class="menu-item"><a href="#0">Indian Army</a></li>
+                <li class="menu-item"><a href="#0">Indian Air Force</a></li>
+                <li class="menu-item"><a href="#0">Indian Navy</a></li>
+            </ol>
+        </li>
+        <li class="open-button" onclick="openForm()"><a href="#0">Contact</a></li>
+    </ol>
+
+
+
+    <div class="form-popup" id="myForm">
+  <form action="/action_page.php" class="form-container">
+    <h1>Login</h1>
+
+    <label for="email"><b>Email</b></label>
+    <input type="text" placeholder="Enter Email" name="email" required>
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" required>
+
+    <button type="submit" class="btn">Login</button>
+    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+  </form>
+</div>
+
+
+    <footer><button aria-label="Toggle Menu">Toggle</button></footer>
+</nav> 
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script>
+    
+   var $els = $('.menu a, .menu header');
+var count = $els.length;
+var grouplength = Math.ceil(count/3);
+var groupNumber = 0;
+var i = 1;
+$('.menu').css('--count',count+'');
+$els.each(function(j){
+    if ( i > grouplength ) {
+        groupNumber++;
+        i=1;
+    }
+    $(this).attr('data-group',groupNumber);
+    i++;
+});
+
+$('.menu footer button').on('click',function(e){
+    e.preventDefault();
+    $els.each(function(j){
+        $(this).css('--top',$(this)[0].getBoundingClientRect().top + ($(this).attr('data-group') * -15) - 20);
+        $(this).css('--delay-in',j*.1+'s');
+        $(this).css('--delay-out',(count-j)*.1+'s');
+    });
+    $('.menu').toggleClass('closed');
+    e.stopPropagation();
+});
+
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+ 
+
+
+
+
+    
+</script>
+</body>
+</html>
